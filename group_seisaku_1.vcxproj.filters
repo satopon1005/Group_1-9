@@ -28,6 +28,9 @@
     <Filter Include="MyMath">
       <UniqueIdentifier>{75ecbf08-a63f-4e75-b063-c4fac09ba865}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{5dc3c43c-68b2-4263-bc0f-d4fdbc4a8b22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="src\MyMath\MyMath.cpp">
       <Filter>MyMath</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="src\MyMath\MyMath.h">
       <Filter>MyMath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneManager.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

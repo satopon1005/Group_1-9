@@ -2,7 +2,7 @@
 #include "Common.h"
 #include "Input/Input.h"
 #include "Frame/Frame.h"
-#include "Objects/Player/Player.h"
+#include "Scene/SceneManager.h"
 
 // Win32アプリケーションは WinMain関数 から始まる
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -18,8 +18,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	}
 
 	InitGame();
-	Player player;
-	player.InitPlayer();
+	SceneManager scene;
 
 	//-----------------------------------------
 
@@ -64,8 +63,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			//ここにゲームの本体を書くことになる
 			//-----------------------------------------
 
-			player.MovePlayer();
-			player.DrawPlayer();
+			scene.Main();
 
 			// ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 			//ループの終わりに
