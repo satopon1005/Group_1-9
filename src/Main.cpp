@@ -2,6 +2,7 @@
 #include "Common.h"
 #include "Input/Input.h"
 #include "Frame/Frame.h"
+#include "Objects/Player/Player.h"
 
 // Win32アプリケーションは WinMain関数 から始まる
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -17,7 +18,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	}
 
 	InitGame();
-
+	Player player;
+	player.InitPlayer();
 
 	//-----------------------------------------
 
@@ -62,7 +64,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			//ここにゲームの本体を書くことになる
 			//-----------------------------------------
 
-
+			player.MovePlayer();
+			player.DrawPlayer();
 
 			// ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 			//ループの終わりに
@@ -92,6 +95,8 @@ void InitGame()
 	SetGraphMode(SCREEN_SIZE_X, SCREEN_SIZE_Y, 32);
 
 	SetDrawScreen(DX_SCREEN_BACK);	//描画するスクリーンを設定する
+
+	SetMouseDispFlag(false);
 
 	Input::InitInput();
 }
