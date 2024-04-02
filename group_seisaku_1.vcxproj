@@ -142,11 +142,17 @@
     <ClCompile Include="src\Frame\Frame.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\MyMath\MyMath.cpp" />
+    <ClCompile Include="src\Objects\Objects.cpp" />
+    <ClCompile Include="src\Objects\Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h" />
     <ClInclude Include="src\Frame\Frame.h" />
     <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\MyMath\MyMath.h" />
+    <ClInclude Include="src\Objects\Objects.h" />
+    <ClInclude Include="src\Objects\Player\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
