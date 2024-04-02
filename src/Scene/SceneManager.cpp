@@ -31,15 +31,14 @@ void SceneManager::Main()
 	//---------------------------------------------------------------------------------
 	case SCENE_INITPLAY: {
 
-		player.InitPlayer();
+		sceneplay.InitPlay();
 
 		m_current_scene_ID = SCENE_LOOPPLAY;
 		break;
 	}
 	case SCENE_LOOPPLAY: {
 
-		player.MovePlayer();
-		player.DrawPlayer();
+		sceneplay.LoopPlay();
 
 		break;
 	}

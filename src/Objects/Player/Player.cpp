@@ -46,7 +46,7 @@ void Player::MovePlayer()
 
 void Player::DrawPlayer()
 {
-	DrawCircle((int)m_pos.x, (int)m_pos.y, 5, GetColor(255, 255, 255), false);
+	DrawCircle((int)m_pos.x, (int)m_pos.y, 5, GetColor(0, 0, 0), false);
 
 	DrawCircle((int)mouse_pos.x, (int)mouse_pos.y, 5, GetColor(0, 255, 0), true);
 }
