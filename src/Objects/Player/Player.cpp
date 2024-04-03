@@ -34,14 +34,24 @@ void Player::MovePlayer()
 	m_pos.y += m_move_vec.y;
 	m_pos.z += m_move_vec.z;
 
-	/*if (Input::IsKeyDown(KEY_INPUT_UP))
-		m_pos.y -= 3;
-	if (Input::IsKeyDown(KEY_INPUT_DOWN))
-		m_pos.y += 3;
-	if (Input::IsKeyDown(KEY_INPUT_LEFT))
-		m_pos.x -= 3;
-	if (Input::IsKeyDown(KEY_INPUT_RIGHT))
-		m_pos.x += 3;*/
+	//プレイヤーが範囲外に行かない
+	if (m_pos.x <= move_limit_Lx)
+	{
+		m_pos.x = move_limit_Lx;
+	}
+	if (m_pos.x >= move_limit_Rx)
+	{
+		m_pos.x = move_limit_Rx;
+	}
+	if (m_pos.y <= move_limit_Uy)
+	{
+		m_pos.y = move_limit_Uy;
+	}
+	if (m_pos.y >= move_limit_Dy)
+	{
+		m_pos.y = move_limit_Dy;
+	}
+
 }
 
 void Player::DrawPlayer()
@@ -49,4 +59,13 @@ void Player::DrawPlayer()
 	DrawCircle((int)m_pos.x, (int)m_pos.y, 5, GetColor(0, 0, 0), false);
 
 	DrawCircle((int)mouse_pos.x, (int)mouse_pos.y, 5, GetColor(0, 255, 0), true);
+
+	//プレイヤーの移動範囲仮置き
+	//横
+	DrawLine(295, 145, SCREEN_SIZE_X - 295, 145, GetColor(0, 0, 5));
+	DrawLine(295, SCREEN_SIZE_Y - 145, SCREEN_SIZE_X - 295, SCREEN_SIZE_Y - 145, GetColor(0, 0, 5));
+	//縦
+	DrawLine(295, 145, 295, SCREEN_SIZE_Y - 145, GetColor(0, 0, 5));
+	DrawLine(SCREEN_SIZE_X - 295, 145, SCREEN_SIZE_X - 295, SCREEN_SIZE_Y - 145, GetColor(0, 0, 5));
+
 }
