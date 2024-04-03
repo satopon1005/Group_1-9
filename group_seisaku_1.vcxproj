@@ -143,6 +143,7 @@
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\MyMath\MyMath.cpp" />
+    <ClCompile Include="src\Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Objects\Objects.cpp" />
     <ClCompile Include="src\Objects\Player\Player.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="src\Frame\Frame.h" />
     <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\MyMath\MyMath.h" />
+    <ClInclude Include="src\Objects\Enemy\Enemy.h" />
     <ClInclude Include="src\Objects\Objects.h" />
     <ClInclude Include="src\Objects\Player\Player.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />

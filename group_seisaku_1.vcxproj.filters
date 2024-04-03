@@ -34,6 +34,9 @@
     <Filter Include="Scene\ScenePlay">
       <UniqueIdentifier>{2038bb70-ace5-4e69-9b79-33ac73c5d97b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Enemy">
+      <UniqueIdentifier>{734b0201-8c9f-4523-8526-4dfdc174e1a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -60,6 +63,9 @@
     <ClCompile Include="src\Scene\ScenePlay\ScenePlay.cpp">
       <Filter>Scene\ScenePlay</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Enemy\Enemy.cpp">
+      <Filter>Objects\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h">
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="src\Scene\ScenePlay\ScenePlay.h">
       <Filter>Scene\ScenePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Objects\Enemy\Enemy.h">
+      <Filter>Objects\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
