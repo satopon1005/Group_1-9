@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "SceneManager.h"
+#include "../../SceneTitle.h"
 
 SceneManager::SceneManager()
 {
@@ -15,6 +16,7 @@ void SceneManager::Main()
 {
 	switch (m_current_scene_ID) {
 	case SCENE_INITTITLE: {
+	    
 
 		m_current_scene_ID = SCENE_LOOPTITLE;
 		break;

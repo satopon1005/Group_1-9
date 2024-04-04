@@ -40,6 +40,9 @@
     <Filter Include="CountTime">
       <UniqueIdentifier>{558dded3-295a-449a-8862-aa5fec6023e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\SceneTitle">
+      <UniqueIdentifier>{f52121b0-02b1-438c-a334-64f4d17ceacf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -72,6 +75,9 @@
     <ClCompile Include="src\CountTime\CountTime.cpp">
       <Filter>CountTime</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\SceneTitle\SceneTitle.cpp">
+      <Filter>Scene\SceneTitle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h">
@@ -103,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="src\CountTime\CountTime.h">
       <Filter>CountTime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneTitle\SceneTitle.h">
+      <Filter>Scene\SceneTitle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
