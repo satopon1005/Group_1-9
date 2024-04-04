@@ -12,7 +12,7 @@ private:
 
 	bool m_count_time_flag;
 
-	int m_display_font_handle;
+	int m_display_font_handle[2];
 
 public:
 	CountTime();
@@ -22,9 +22,10 @@ public:
 	void StartCountTime();
 
 	void StepCountTimeDown();
-	void CheckEndCountTimeDown();
+	bool CheckEndCountTimeDown();
 
 	void DrawCountTime();
+	void DrawCountTimeStart();
 
 	int GetMinutes() { return m_minutes; }
 	int GetSeconds() { return m_seconds; }

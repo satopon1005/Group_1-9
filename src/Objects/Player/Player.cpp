@@ -18,7 +18,7 @@ void Player::InitPlayer() {
 	m_pos = { SCREEN_SIZE_X / 2,SCREEN_SIZE_Y / 2,0 };
 }
 
-void Player::MovePlayer()
+void Player::CheckPlayerMousePoint()
 {
 	//マウスのポジション
 	int mouse_pos_x, mouse_pos_y;
@@ -26,7 +26,10 @@ void Player::MovePlayer()
 	GetMousePoint(&mouse_pos_x, &mouse_pos_y);
 
 	mouse_pos = VGet((float)mouse_pos_x, (float)mouse_pos_y, 0);
+}
 
+void Player::MovePlayer()
+{
 	//動く向きと速さ
 	m_move_vec = GetVector(mouse_pos, m_pos, 3);
 

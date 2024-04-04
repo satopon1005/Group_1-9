@@ -13,12 +13,13 @@ CountTime::CountTime()
 
 	m_count_time_flag = false;
 
-	m_display_font_handle = CreateFontToHandle(NULL, 40, 3);
+	m_display_font_handle[0] = CreateFontToHandle(NULL, 40, 3);
+	m_display_font_handle[1] = CreateFontToHandle(NULL, 100, 3);
 }
 
 CountTime::~CountTime()
 {
-	DeleteFontToHandle(m_display_font_handle);
+	DeleteFontToHandle(m_display_font_handle[0]);
 }
 
 void CountTime::InitCountTime(int minutes, int seconds)
@@ -60,11 +61,13 @@ void CountTime::StepCountTimeDown()
 	}
 }
 
-void CountTime::CheckEndCountTimeDown()
+bool CountTime::CheckEndCountTimeDown()
 {
 	if (m_minutes == 0 && m_seconds == 0) {
 		m_count_time_flag = false;
+		return true;
 	}
+	return false;
 }
 
 void CountTime::DrawCountTime()
@@ -75,6 +78,15 @@ void CountTime::DrawCountTime()
 
 	DrawFormatStringToHandle(SCREEN_SIZE_X / 2 - 40, 0,
 		GetColor(0, 0, 0),
-		m_display_font_handle,
+		m_display_font_handle[0],
 		"%02d:%02d", m_minutes, m_seconds);
+}
+
+void CountTime::DrawCountTimeStart()
+{
+	DrawFormatStringToHandle(SCREEN_SIZE_X / 2 - 25,
+		SCREEN_SIZE_Y / 2 - 50,
+		GetColor(0, 0, 0),
+		m_display_font_handle[1],
+		"%d", m_seconds);
 }

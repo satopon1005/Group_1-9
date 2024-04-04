@@ -20,6 +20,8 @@ public:
 
 	void InitPlayer();
 
+	void CheckPlayerMousePoint();
+
 	void MovePlayer();
 	void DrawPlayer();
 };

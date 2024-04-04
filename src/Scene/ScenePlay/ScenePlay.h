@@ -7,7 +7,7 @@ class ScenePlay
 {
 private:
 	Player player;
-	CountTime count_time;
+	CountTime count_time[2];
 
 public:
 	void InitPlay();
