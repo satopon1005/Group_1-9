@@ -6,6 +6,8 @@
 void ScenePlay::InitPlay()
 {
 	player.InitPlayer();
+	for (int i = 0; i < ENEMY_MAX_NUM; i++)
+		enemy[i].InitEnemy();
 	count_time[0].InitCountTime(1, 30);
 	count_time[1].InitCountTime(0, 3);
 }
@@ -43,6 +45,22 @@ void ScenePlay::LoopPlay()
 
 	if (count_time[1].CheckEndCountTimeDown()) {
 		player.MovePlayer();
+		if (count_time[0].GetNowTime() == count_time[0].GetStartTime())
+		{
+			for (int i = 0; i < ENEMY_MAX_NUM; i++)
+			{
+				if (!enemy[i].GetUseFlag())
+				{
+					enemy[i].SpawnEnemy(player.GetPos());
+					break;
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < ENEMY_MAX_NUM; i++)
+	{
+		enemy[i].MoveEnemy();
 	}
 
 	//•`‰æ
@@ -52,6 +70,11 @@ void ScenePlay::LoopPlay()
 		count_time[1].DrawCountTimeStart();
 
 	count_time[0].DrawCountTime();
+
+	for (int i = 0; i < ENEMY_MAX_NUM; i++)
+	{
+		enemy[i].DrawEnemy();
+	}
 
 	player.DrawPlayer();
 }
