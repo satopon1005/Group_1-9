@@ -19,7 +19,11 @@ public:
 	~Enemy();
 
 	void InitEnemy();
+	void FinEnemy();
+
 	void SpawnEnemy(VECTOR player_pos);
 	void MoveEnemy();
 	void DrawEnemy();
+
+	bool GetUseFlag() { return Arrow_Flag; }
 };
