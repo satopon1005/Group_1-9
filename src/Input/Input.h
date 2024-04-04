@@ -34,6 +34,8 @@ public:
 	static bool IsMouseRelease(int mouse_code);
 	static bool IsMouseDown(int mouse_code);
 
+	static bool IsClickInArea(int mouse_code, int Lx, int Uy, int Rx, int Dy);
+
 
 	static char GetCurrentKey(int index) { return currentKeyBuf[index]; }
 	static char GetPreKey(int index) { return preKeyBuf[index]; }
