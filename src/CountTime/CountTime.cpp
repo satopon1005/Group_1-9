@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "CountTime.h"
+#include "../Common.h"
 
 CountTime::CountTime()
 {
@@ -68,7 +69,12 @@ void CountTime::CheckEndCountTimeDown()
 
 void CountTime::DrawCountTime()
 {
-	DrawFormatStringToHandle(0, 0, GetColor(0, 0, 0),
+	DrawBox(SCREEN_SIZE_X / 2 - 60, 0,
+		SCREEN_SIZE_X / 2 - 60 + 140, 40,
+		GetColor(0, 0, 0), false);
+
+	DrawFormatStringToHandle(SCREEN_SIZE_X / 2 - 40, 0,
+		GetColor(0, 0, 0),
 		m_display_font_handle,
 		"%02d:%02d", m_minutes, m_seconds);
 }
