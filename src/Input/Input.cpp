@@ -161,3 +161,20 @@ bool Input::IsMouseDown(int mouse_code)
 
 	return false;
 }
+
+bool Input::IsClickInArea(int mouse_code, int Lx, int Uy, int Rx, int Dy)
+{
+	if (IsMousePush(mouse_code)) {
+		int mouse_x, mouse_y;
+
+		GetMousePoint(&mouse_x, &mouse_y);
+
+		if (mouse_x >= Lx &&
+			mouse_x <= Rx &&
+			mouse_y >= Uy &&
+			mouse_y <= Dy)
+			return true;
+	}
+
+	return false;
+}
