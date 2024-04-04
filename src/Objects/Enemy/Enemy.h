@@ -6,6 +6,8 @@ class Enemy :public Objects
 {
 private:
 	VECTOR e_pos;
+	VECTOR e_vec;
+	double e_angle;
 
 	int Arrowhndl;
 
@@ -17,7 +19,7 @@ public:
 	~Enemy();
 
 	void InitEnemy();
-	void SpawnEnemy();
+	void SpawnEnemy(VECTOR player_pos);
 	void MoveEnemy();
 	void DrawEnemy();
 };
