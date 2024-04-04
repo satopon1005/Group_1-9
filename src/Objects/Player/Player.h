@@ -3,10 +3,10 @@
 #include "../Objects.h"
 
 //ƒvƒŒƒCƒ„[‚ÌˆÚ“®”ÍˆÍ
-constexpr int move_limit_Lx = 300;
-constexpr int move_limit_Rx = 980;
-constexpr int move_limit_Uy = 150;
-constexpr int move_limit_Dy = 570;
+constexpr int PLAYER_MOVE_LIMIT_X = 300;
+constexpr int PLAYER_MOVE_LIMIT_Y = 150;
+
+constexpr int PLAYER_COLLISION_R = 5;
 
 class Player :public Objects
 {
