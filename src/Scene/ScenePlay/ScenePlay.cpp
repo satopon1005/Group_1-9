@@ -10,6 +10,8 @@ void ScenePlay::InitPlay()
 		enemy[i].InitEnemy();
 	count_time[0].InitCountTime(1, 30);
 	count_time[1].InitCountTime(0, 3);
+
+	SetMouseDispFlag(false);
 }
 
 void ScenePlay::LoopPlay()

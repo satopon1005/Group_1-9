@@ -1,5 +1,6 @@
 #pragma once
 #include "../Objects/Player/Player.h"
+#include "SceneTitle/SceneTitle.h"
 #include "ScenePlay/ScenePlay.h"
 
 enum SceneNumber
@@ -25,7 +26,9 @@ class SceneManager
 {
 private:
 	int m_current_scene_ID;
-	ScenePlay sceneplay;
+
+	SceneTitle scene_title;
+	ScenePlay scene_play;
 
 public:
 	SceneManager();

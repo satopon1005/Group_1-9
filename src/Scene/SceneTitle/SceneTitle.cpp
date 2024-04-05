@@ -3,37 +3,49 @@
 #include "../../Input/Input.h"
 #include "../SceneManager.h"
 
-void SceneTitle::InitTitle()
+SceneTitle::SceneTitle()
 {
-	scenetitle.TitleImagehandle = LoadGraph(TITLE_IMAGE_PATH);  //タイトル画像の読み込み
-	scenetitle.TitleButtonhandle = LoadGraph(TITLE_BUTTON_PATH);//ボタン画像の読み込み
+	TitleImagehandle = 0;
+	TitleButtonhandle = 0;
+}
 
-	scenetitle.Title_x = 0, scenetitle.Title_y = 0;      //タイトルの座標
-	scenetitle.Button_x = 400, scenetitle.Button_y = 500;//ボタンの座標
+SceneTitle::~SceneTitle()
+{
 
 }
 
-void SceneTitle::StepTitle()
+void SceneTitle::InitTitle()
+{
+	TitleImagehandle = LoadGraph(TITLE_IMAGE_PATH);  //タイトル画像の読み込み
+	TitleButtonhandle = LoadGraph(TITLE_BUTTON_PATH);//ボタン画像の読み込み
+
+	SetMouseDispFlag(true);
+}
+
+bool SceneTitle::StepTitle()
 {
 	//ボタンを押したらスタート
-	if (Input::IsClickInArea(MOUSE_INPUT_LEFT, 400, 500, 800, 900))
-	{
-
-
-	}
+	if (Input::IsClickInArea(MOUSE_INPUT_LEFT,
+							BUTTON_X,
+							BUTTON_Y,
+							BUTTON_X + BUTTON_W,
+							BUTTON_Y + BUTTON_H))
+		return true;
+	return false;
 
 }
 
 void SceneTitle::DrawTitle()
 {
 	//タイトル画面の表示
-	DrawRotaGraph(scenetitle.Title_x, scenetitle.Title_y, 1.0, 0.0, scenetitle.TitleImagehandle,true);
+	DrawGraph(0, 0, TitleImagehandle,true);
 	//ボタン画像の表示
-	DrawRotaGraph(scenetitle.Button_x, scenetitle.Button_y, 1.0, 0.0, scenetitle.TitleButtonhandle, true);
+	DrawGraph(BUTTON_X, BUTTON_Y, TitleButtonhandle, true);
 
 }
 
 void SceneTitle::FinTitle()
 {
-	
+	DeleteGraph(TitleImagehandle);
+	DeleteGraph(TitleButtonhandle);
 }

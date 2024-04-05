@@ -1,25 +1,27 @@
 #pragma once
 
 
-#define TITLE_IMAGE_PATH "Data/TitleImage.png"        //タイトル
-#define TITLE_BUTTON_PATH "Data/TitlebuttonImage.jfif"//ボタン
+#define TITLE_IMAGE_PATH "Data/TitleImage/TitleImage.png"        //タイトル
+#define TITLE_BUTTON_PATH "Data/TitleImage/TitlebuttonImage.png"//ボタン
+
+constexpr int BUTTON_X = 400;
+constexpr int BUTTON_Y = 400;
+constexpr int BUTTON_W = 400;
+constexpr int BUTTON_H = 100;
 
 class SceneTitle
 {
 private:
-	
-
-	int TitleImagehandle,TitleButtonhandle;//タイトル画面とボタン画像のハンドル
-	int Title_x, Title_y;
-	int Button_x, Button_y;
+	int TitleImagehandle;	//タイトル画面のハンドル
+	int TitleButtonhandle;	//ボタン画像のハンドル
 
 public:
+	SceneTitle();
+	~SceneTitle();
 
 	void InitTitle();
-	void StepTitle();
+	bool StepTitle();
 	void DrawTitle();
 	void FinTitle();
 
 };
-
-SceneTitle scenetitle;

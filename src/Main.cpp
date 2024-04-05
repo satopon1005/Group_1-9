@@ -94,8 +94,6 @@ void InitGame()
 
 	SetDrawScreen(DX_SCREEN_BACK);	//•`‰æ‚·‚éƒXƒNƒŠ[ƒ“‚ğİ’è‚·‚é
 
-	SetMouseDispFlag(false);
-
 	Input::InitInput();
 }
 

@@ -1,10 +1,9 @@
 #include "DxLib.h"
 #include "SceneManager.h"
-#include "../../SceneTitle.h"
 
 SceneManager::SceneManager()
 {
-	m_current_scene_ID = SCENE_INITPLAY;
+	m_current_scene_ID = SCENE_INITTITLE;
 }
 
 SceneManager::~SceneManager()
@@ -16,12 +15,17 @@ void SceneManager::Main()
 {
 	switch (m_current_scene_ID) {
 	case SCENE_INITTITLE: {
-	    
+		scene_title.InitTitle();
 
 		m_current_scene_ID = SCENE_LOOPTITLE;
 		break;
 	}
 	case SCENE_LOOPTITLE: {
+
+		if(scene_title.StepTitle())
+			m_current_scene_ID = SCENE_FINTITLE;
+
+		scene_title.DrawTitle();
 
 		break;
 	}
@@ -33,14 +37,14 @@ void SceneManager::Main()
 	//---------------------------------------------------------------------------------
 	case SCENE_INITPLAY: {
 
-		sceneplay.InitPlay();
+		scene_play.InitPlay();
 
 		m_current_scene_ID = SCENE_LOOPPLAY;
 		break;
 	}
 	case SCENE_LOOPPLAY: {
 
-		sceneplay.LoopPlay();
+		scene_play.LoopPlay();
 
 		break;
 	}
