@@ -11,7 +11,7 @@ SceneTitle::SceneTitle()
 
 SceneTitle::~SceneTitle()
 {
-
+	FinTitle();
 }
 
 void SceneTitle::InitTitle()

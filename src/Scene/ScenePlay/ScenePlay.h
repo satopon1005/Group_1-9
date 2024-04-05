@@ -16,4 +16,5 @@ private:
 public:
 	void InitPlay();
 	void LoopPlay();
+	void FinPlay();
 };

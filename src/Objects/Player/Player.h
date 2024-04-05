@@ -2,6 +2,8 @@
 
 #include "../Objects.h"
 
+#define PLAYER_HANDLE_PATH	"Data/PlayerImage/Player.png"
+
 //ƒvƒŒƒCƒ„[‚ÌˆÚ“®”ÍˆÍ
 constexpr int PLAYER_MOVE_LIMIT_X = 300;
 constexpr int PLAYER_MOVE_LIMIT_Y = 150;
@@ -19,6 +21,7 @@ public:
 	~Player();
 
 	void InitPlayer();
+	void FinPlayer();
 
 	void CheckPlayerMousePoint();
 

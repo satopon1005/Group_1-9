@@ -13,7 +13,6 @@ Enemy::Enemy()
 	e_vec = { 0 };
 	e_angle = 0;
 	Arrow_Flag = false;
-	Arrowhndl = 0;
 }
 
 Enemy::~Enemy()
@@ -29,12 +28,12 @@ void Enemy::InitEnemy()
 	e_vec = { 0 };
 	e_angle = 0;
 	Arrow_Flag = false;
-	Arrowhndl = LoadGraph("Data/EnemyImage/yajirushi-illust13(1).png");
+	m_handle = LoadGraph("Data/EnemyImage/yajirushi-illust13(1).png");
 }
 
 void Enemy::FinEnemy()
 {
-	DeleteGraph(Arrowhndl);
+	DeleteGraph(m_handle);
 }
 
 void Enemy::SpawnEnemy(VECTOR player_pos)
@@ -93,5 +92,5 @@ void Enemy::MoveEnemy()
 void Enemy::DrawEnemy()
 {
 	if (Arrow_Flag == true)
-		DrawRotaGraph(e_pos.x, e_pos.y, 1.0, e_angle, Arrowhndl, true);
+		DrawRotaGraph(e_pos.x, e_pos.y, 1.0, e_angle, m_handle, true);
 }

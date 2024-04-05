@@ -11,11 +11,17 @@ Player::Player()
 }
 Player::~Player()
 {
-
+	FinPlayer();
 }
 
 void Player::InitPlayer() {
 	m_pos = { SCREEN_SIZE_X / 2,SCREEN_SIZE_Y / 2,0 };
+	m_handle = LoadGraph(PLAYER_HANDLE_PATH);
+}
+
+void Player::FinPlayer()
+{
+	DeleteGraph(m_handle);
 }
 
 void Player::CheckPlayerMousePoint()

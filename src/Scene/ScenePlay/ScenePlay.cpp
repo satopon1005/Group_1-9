@@ -80,3 +80,12 @@ void ScenePlay::LoopPlay()
 
 	player.DrawPlayer();
 }
+
+void ScenePlay::FinPlay()
+{
+	player.FinPlayer();
+	for (int i = 0; i < ENEMY_MAX_NUM; i++)
+	{
+		enemy[i].FinEnemy();
+	}
+}

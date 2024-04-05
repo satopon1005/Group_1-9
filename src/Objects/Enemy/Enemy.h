@@ -9,8 +9,6 @@ private:
 	VECTOR e_vec;
 	double e_angle;
 
-	int Arrowhndl;
-
 	bool Arrow_Flag;
 	
 
