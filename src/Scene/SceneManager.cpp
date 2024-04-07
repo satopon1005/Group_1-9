@@ -53,12 +53,15 @@ void SceneManager::Main()
 	}
 	//----------------------------------------------------------------------------------
 	case SCENE_INITGAMEOVER: {
-
+		scene_gameover.InitGameOver();
 		m_current_scene_ID = SCENE_LOOPGAMEOVER;
 		break;
 	}
 	case SCENE_LOOPGAMEOVER: {
+		if (scene_gameover.StepGameOver())
+			m_current_scene_ID = SCENE_FINCLEAR;
 
+		scene_gameover.DrawGameOver();
 		break;
 	}
 	case SCENE_FINGAMEOVER: {
@@ -68,11 +71,15 @@ void SceneManager::Main()
 	}
 	//----------------------------------------------------------------------------------
 	case SCENE_INITCLEAR: {
-
+		scene_clear.InitClear();
 		m_current_scene_ID = SCENE_LOOPCLEAR;
 		break;
 	}
 	case SCENE_LOOPCLEAR: {
+		if (scene_clear.StepClear())
+			m_current_scene_ID = SCENE_FINCLEAR;
+
+		scene_clear.DrawClear();
 
 		break;
 	}

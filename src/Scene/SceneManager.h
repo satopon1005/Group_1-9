@@ -2,6 +2,8 @@
 #include "../Objects/Player/Player.h"
 #include "SceneTitle/SceneTitle.h"
 #include "ScenePlay/ScenePlay.h"
+#include "SceneClear/Clear.h"
+#include "SceneGameOver/GameOver.h"
 
 enum SceneNumber
 {
@@ -29,6 +31,8 @@ private:
 
 	SceneTitle scene_title;
 	ScenePlay scene_play;
+	SceneClear scene_clear;
+	SceneGameOver scene_gameover;
 
 public:
 	SceneManager();
