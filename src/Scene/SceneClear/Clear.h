@@ -10,6 +10,13 @@ class SceneClear
 private:
 	int ClearImagehndl;	//タイトル画面のハンドル
 	int ClearButtonhndl;	//ボタン画像のハンドル
+	int m_fg_alpha;
+	int m_fg_color;
+	bool m_next_flag;
+
+	int m_button_alpha;
+	int m_button_alpha_add;
+	bool m_IsUse_button_alpha;
 
 public:
 	SceneClear();

@@ -18,7 +18,6 @@ void SceneManager::Main()
 		scene_title.InitTitle();
 
 		m_current_scene_ID = SCENE_LOOPTITLE;
-		break;
 	}
 	case SCENE_LOOPTITLE: {
 
@@ -42,20 +41,27 @@ void SceneManager::Main()
 	}
 	case SCENE_LOOPPLAY: {
 
-		scene_play.LoopPlay();
+		if(scene_play.StepPlay())
+			m_current_scene_ID = SCENE_FINPLAY;
+
 		scene_play.DrawPlay();
 
 		break;
 	}
 	case SCENE_FINPLAY: {
 
+		scene_play.FinPlay();
+
+		if(scene_play.GetPlayerDeayhFlag())
+			m_current_scene_ID = SCENE_INITGAMEOVER;
+		else
+			m_current_scene_ID = SCENE_INITCLEAR;
 		break;
 	}
 	//----------------------------------------------------------------------------------
 	case SCENE_INITGAMEOVER: {
 		scene_gameover.InitGameOver();
 		m_current_scene_ID = SCENE_LOOPGAMEOVER;
-		break;
 	}
 	case SCENE_LOOPGAMEOVER: {
 		if (scene_gameover.StepGameOver())
@@ -73,7 +79,6 @@ void SceneManager::Main()
 	case SCENE_INITCLEAR: {
 		scene_clear.InitClear();
 		m_current_scene_ID = SCENE_LOOPCLEAR;
-		break;
 	}
 	case SCENE_LOOPCLEAR: {
 		if (scene_clear.StepClear())
@@ -86,7 +91,6 @@ void SceneManager::Main()
 	case SCENE_FINCLEAR: {
 
 		m_current_scene_ID = SCENE_INITTITLE;
-		break;
 	}
 	}
 }

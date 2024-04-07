@@ -2,6 +2,7 @@
 #include "../../Common.h"
 #include "ScenePlay.h"
 #include "../../Input/Input.h"
+#include "../SceneTitle/SceneTitle.h"
 
 void ScenePlay::InitPlay()
 {
@@ -11,42 +12,61 @@ void ScenePlay::InitPlay()
 	count_time[0].InitCountTime(1, 30);
 	count_time[1].InitCountTime(0, 3);
 
+	m_fg_alpha = 255;
+	m_fg_color = GetColor(255, 255, 255);
+
+	m_next_flag = false;
+	m_player_death_flag = false;
+
 	SetMouseDispFlag(false);
 }
 
-void ScenePlay::LoopPlay()
+bool ScenePlay::StepPlay()
 {
 	//時間経過処理
 	//================================================
-
-	if (Input::IsKeyPush(KEY_INPUT_RETURN) == 1) {
+	//開始タイマー作動
+	if (m_fg_alpha <= 0) {
 		if (!count_time[1].GetCountTimeFlag()) {
 			count_time[1].StartCountTime();
 		}
 	}
-
+	//開始タイマーの処理
 	if (count_time[1].GetCountTimeFlag()) {
 		count_time[1].StepCountTimeDown();
 	}
 
-
+	//開始タイマーが終了したらプレイタイマー作動
 	if (count_time[1].CheckEndCountTimeDown()) {
 		if (!count_time[0].GetCountTimeFlag()) {
 			count_time[0].StartCountTime();
 		}
 	}
-
-	if (count_time[0].GetCountTimeFlag()) {
+	//プレイタイマーの処理
+	if (m_next_flag == false && count_time[0].GetCountTimeFlag()) {
 		count_time[0].StepCountTimeDown();
 	}
 
-	count_time[0].CheckEndCountTimeDown();
+	//開始タイマーが終了したらプレイシーン終了フラグを立てる
+	if (count_time[0].CheckEndCountTimeDown()) {
+		m_next_flag = true;
+	}
 	//================================================
 
 	player.CheckPlayerMousePoint();
 
-	if (count_time[1].CheckEndCountTimeDown()) {
+	//開始タイマーが終了したらプレイ開始
+	if (m_next_flag == false && count_time[1].CheckEndCountTimeDown()) {
+
 		player.MovePlayer();
+		for (int i = 0; i < ENEMY_MAX_NUM; i++)
+		{
+			//敵(矢印)の移動処理
+			enemy[i].MoveEnemy();
+			//画面外に行ったら消す
+			enemy[i].DeathEnemy();
+		}
+		//１秒毎に敵(矢印)を出す
 		if (count_time[0].GetNowTime() == count_time[0].GetStartTime())
 		{
 			for (int i = 0; i < ENEMY_MAX_NUM; i++)
@@ -59,14 +79,19 @@ void ScenePlay::LoopPlay()
 			}
 		}
 	}
-	for (int i = 0; i < ENEMY_MAX_NUM; i++) {
-		enemy[i].DeathEnemy();
+
+	if (!m_next_flag) {
+		if (m_fg_alpha > 0)
+			m_fg_alpha -= FG_ALPHA_ADD_NUM;
+	}
+	else {
+		m_fg_alpha += FG_ALPHA_ADD_NUM;
 	}
 
-	for (int i = 0; i < ENEMY_MAX_NUM; i++)
-	{
-		enemy[i].MoveEnemy();
-	}
+	if (m_next_flag == true && m_fg_alpha >= 255)
+		return true;
+
+	return false;
 }
 
 void ScenePlay::DrawPlay()
@@ -85,6 +110,10 @@ void ScenePlay::DrawPlay()
 
 	if (count_time[1].GetCountTimeFlag())
 		count_time[1].DrawCountTimeStart();
+
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_fg_alpha);
+	DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, m_fg_color, true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 }
 
 void ScenePlay::FinPlay()

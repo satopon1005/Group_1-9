@@ -147,6 +147,8 @@
     <ClCompile Include="src\Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="src\Objects\Objects.cpp" />
     <ClCompile Include="src\Objects\Player\Player.cpp" />
+    <ClCompile Include="src\Scene\SceneClear\Clear.cpp" />
+    <ClCompile Include="src\Scene\SceneGameOver\GameOver.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\ScenePlay\ScenePlay.cpp" />
     <ClCompile Include="src\Scene\SceneTitle\SceneTitle.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="src\Objects\Enemy\Enemy.h" />
     <ClInclude Include="src\Objects\Objects.h" />
     <ClInclude Include="src\Objects\Player\Player.h" />
+    <ClInclude Include="src\Scene\SceneClear\Clear.h" />
+    <ClInclude Include="src\Scene\SceneGameOver\GameOver.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Scene\ScenePlay\ScenePlay.h" />
     <ClInclude Include="src\Scene\SceneTitle\SceneTitle.h" />
