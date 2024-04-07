@@ -158,3 +158,24 @@ float AngleOf2Vector(VECTOR vec1, VECTOR vec2,bool degree_switch)
 
 	return (float)sita;
 }
+
+//‚Q“_ŠÔ‚Ì‹——£
+float GetDistance(VECTOR pos1, VECTOR pos2)
+{
+	VECTOR distance = {
+		fabsf(pos1.x - pos2.x),
+		fabsf(pos1.y - pos2.y),
+		fabsf(pos1.z - pos2.z),
+	};
+
+	return (float)sqrt(distance.x * distance.x + distance.y * distance.y + distance.z * distance.z);
+}
+
+//”½”ä—á
+float GetInverseProportion(float x,int constant)
+{
+	if (x != 0)
+		return constant / x;
+	else
+		return 0;
+}

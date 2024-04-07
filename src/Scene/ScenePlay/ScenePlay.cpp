@@ -53,7 +53,7 @@ void ScenePlay::LoopPlay()
 			{
 				if (!enemy[i].GetUseFlag())
 				{
-					enemy[i].SpawnEnemy(player.GetPos());
+					enemy[i].SpawnEnemy();
 					break;
 				}
 			}
@@ -64,7 +64,10 @@ void ScenePlay::LoopPlay()
 	{
 		enemy[i].MoveEnemy();
 	}
+}
 
+void ScenePlay::DrawPlay()
+{
 	//•`‰æ
 	DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, GetColor(255, 255, 255), true);
 

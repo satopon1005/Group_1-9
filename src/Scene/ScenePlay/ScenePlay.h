@@ -4,7 +4,7 @@
 #include "../../Objects/Enemy/Enemy.h"
 #include "../../CountTime/CountTime.h"
 
-constexpr int ENEMY_MAX_NUM = 10;
+constexpr int ENEMY_MAX_NUM = 30;
 
 class ScenePlay
 {
@@ -16,5 +16,6 @@ private:
 public:
 	void InitPlay();
 	void LoopPlay();
+	void DrawPlay();
 	void FinPlay();
 };

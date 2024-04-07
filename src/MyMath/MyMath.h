@@ -38,3 +38,9 @@ VECTOR VecCross(VECTOR vec1, VECTOR vec2);
 
 //ƒxƒNƒgƒ‹‚Ì‚È‚·Šp
 float AngleOf2Vector(VECTOR vec1, VECTOR vec2, bool degree_switch = false);
+
+//‚Q“_ŠÔ‚Ì‹——£
+float GetDistance(VECTOR pos1, VECTOR pos2);
+
+//”½”ä—á
+float GetInverseProportion(float x, int constant);

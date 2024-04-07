@@ -1,6 +1,13 @@
 #pragma once
 
 #include "../Objects.h"
+#include "../../Common.h"
+#include "../Player/Player.h"
+
+constexpr int ENEMY_SPAWN_AREA_X = SCREEN_SIZE_X - PLAYER_MOVE_LIMIT_X * 2;
+constexpr int ENEMY_SPAWN_AREA_Y = SCREEN_SIZE_Y - PLAYER_MOVE_LIMIT_Y * 2;
+
+constexpr float ENEMY_SPEED = 2.0;
 
 class Enemy :public Objects
 {
@@ -19,7 +26,7 @@ public:
 	void InitEnemy();
 	void FinEnemy();
 
-	void SpawnEnemy(VECTOR player_pos);
+	void SpawnEnemy();
 	void MoveEnemy();
 	void DrawEnemy();
 

@@ -1,6 +1,5 @@
 #include "DxLib.h"
 #include "Enemy.h"
-#include "../Player/Player.h"
 #include "../../MyMath/MyMath.h"
 #include "../../Common.h"
 #include "../../Input/Input.h"
@@ -22,8 +21,8 @@ Enemy::~Enemy()
 
 void Enemy::InitEnemy()
 {
-	e_pos.x = 1300;
-	e_pos.y = GetRand(720);
+	e_pos.x = 0;
+	e_pos.y = 0;
 	e_pos.z = 0;
 	e_vec = { 0 };
 	e_angle = 0;
@@ -36,7 +35,7 @@ void Enemy::FinEnemy()
 	DeleteGraph(m_handle);
 }
 
-void Enemy::SpawnEnemy(VECTOR player_pos)
+void Enemy::SpawnEnemy()
 {
 	int random_spawn = GetRand(2);
 
@@ -48,10 +47,10 @@ void Enemy::SpawnEnemy(VECTOR player_pos)
 			//右側矢印スポーン処理
 			if (Arrow_Flag == false)
 			{
-				e_pos.x = 1300;
-				e_pos.y = GetRand(720);
-				e_vec = GetVector(e_pos, player_pos);
-				e_angle = AngleOf2Vector(VGet(1, 0, 0), e_vec,5);
+				e_pos.x = SCREEN_SIZE_X;
+				e_pos.y = (float)GetRand(ENEMY_SPAWN_AREA_Y) + PLAYER_MOVE_LIMIT_Y;
+				e_vec = VGet(-ENEMY_SPEED, 0.0f, 0.0f);
+				e_angle = AngleOf2Vector(VGet(1, 0, 0), e_vec);
 				Arrow_Flag = true;
 			}
 		}
@@ -62,7 +61,9 @@ void Enemy::SpawnEnemy(VECTOR player_pos)
 			if (Arrow_Flag == false)
 			{
 				e_pos.x = 0;
-				e_pos.y = GetRand(720);
+				e_pos.y = (float)GetRand(ENEMY_SPAWN_AREA_Y) + PLAYER_MOVE_LIMIT_Y;
+				e_vec = VGet(ENEMY_SPEED, 0.0f, 0.0f);
+				e_angle = AngleOf2Vector(VGet(1, 0, 0), e_vec);
 				Arrow_Flag = true;
 			}
 		}
@@ -72,8 +73,10 @@ void Enemy::SpawnEnemy(VECTOR player_pos)
 			//上側矢印スポーン処理
 			if (Arrow_Flag == false)
 			{
-				e_pos.x = GetRand(720);
+				e_pos.x = (float)GetRand(ENEMY_SPAWN_AREA_X) + PLAYER_MOVE_LIMIT_X;
 				e_pos.y = 0;
+				e_vec = VGet(0.0f, ENEMY_SPEED, 0.0f);
+				e_angle = AngleOf2Vector(VGet(1, 0, 0), e_vec);
 				Arrow_Flag = true;
 			}
 		}
@@ -92,5 +95,5 @@ void Enemy::MoveEnemy()
 void Enemy::DrawEnemy()
 {
 	if (Arrow_Flag == true)
-		DrawRotaGraph(e_pos.x, e_pos.y, 1.0, e_angle, m_handle, true);
+		DrawRotaGraph((int)e_pos.x, (int)e_pos.y, 1.0, e_angle, m_handle, true);
 }

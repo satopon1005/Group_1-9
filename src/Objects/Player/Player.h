@@ -10,6 +10,8 @@ constexpr int PLAYER_MOVE_LIMIT_Y = 150;
 
 constexpr int PLAYER_COLLISION_R = 5;
 
+constexpr float PLAYER_MOVE_SPEED = 300.0f;
+
 class Player :public Objects
 {
 private:

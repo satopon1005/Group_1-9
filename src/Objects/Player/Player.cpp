@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "../../MyMath/MyMath.h"
 #include "../../Input/Input.h"
+#include <math.h>
 
 Player::Player()
 {
@@ -37,7 +38,7 @@ void Player::CheckPlayerMousePoint()
 void Player::MovePlayer()
 {
 	//“®‚­Œü‚«‚Æ‘¬‚³
-	m_move_vec = GetVector(mouse_pos, m_pos, 3);
+	m_move_vec = GetVector(mouse_pos, m_pos, GetInverseProportion(GetDistance(mouse_pos, m_pos), PLAYER_MOVE_SPEED));
 
 	m_pos.x += m_move_vec.x;
 	m_pos.y += m_move_vec.y;

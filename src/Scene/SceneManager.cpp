@@ -45,6 +45,7 @@ void SceneManager::Main()
 	case SCENE_LOOPPLAY: {
 
 		scene_play.LoopPlay();
+		scene_play.DrawPlay();
 
 		break;
 	}
