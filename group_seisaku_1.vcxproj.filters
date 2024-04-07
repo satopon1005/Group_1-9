@@ -49,6 +49,9 @@
     <Filter Include="Scene\SceneGameOver">
       <UniqueIdentifier>{520d0a03-2592-4b4d-90a1-40ab443595bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{09294605-89ce-47d2-8ae1-9cc6d29d39b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -90,6 +93,9 @@
     <ClCompile Include="src\Scene\SceneClear\Clear.cpp">
       <Filter>Scene\SceneClear</Filter>
     </ClCompile>
+    <ClCompile Include="src\Collision\Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.h">
@@ -130,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="src\Scene\SceneClear\Clear.h">
       <Filter>Scene\SceneClear</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\Collision.h">
+      <Filter>Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

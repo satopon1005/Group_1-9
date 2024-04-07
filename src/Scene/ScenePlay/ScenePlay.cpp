@@ -3,6 +3,7 @@
 #include "ScenePlay.h"
 #include "../../Input/Input.h"
 #include "../SceneTitle/SceneTitle.h"
+#include "../../Collision/Collision.h"
 
 void ScenePlay::InitPlay()
 {
@@ -59,16 +60,14 @@ bool ScenePlay::StepPlay()
 	if (m_next_flag == false && count_time[1].CheckEndCountTimeDown()) {
 
 		player.MovePlayer();
-		for (int i = 0; i < ENEMY_MAX_NUM; i++)
-		{
+		for (int i = 0; i < ENEMY_MAX_NUM; i++){
 			//“G(–îˆó)‚ÌˆÚ“®ˆ—
 			enemy[i].MoveEnemy();
 			//‰æ–ÊŠO‚És‚Á‚½‚çÁ‚·
 			enemy[i].DeathEnemy();
 		}
 		//‚P•b–ˆ‚É“G(–îˆó)‚ðo‚·
-		if (count_time[0].GetNowTime() == count_time[0].GetStartTime())
-		{
+		if (count_time[0].GetNowTime() == count_time[0].GetStartTime()){
 			for (int i = 0; i < ENEMY_MAX_NUM; i++)
 			{
 				if (!enemy[i].GetUseFlag())
@@ -76,6 +75,32 @@ bool ScenePlay::StepPlay()
 					enemy[i].SpawnEnemy();
 					break;
 				}
+			}
+		}
+
+		//ƒvƒŒƒCƒ„[‚Æ“G‚Ì“–‚½‚è”»’è
+		for (int i = 0; i < ENEMY_MAX_NUM; i++) {
+
+			int collision_x, collision_y;
+
+			if (enemy[i].GetRandomSpawnNum() == 2) {
+				collision_x = ENEMY_COLLISION_Y;
+				collision_y = ENEMY_COLLISION_X;
+			}
+			else {
+				collision_x = ENEMY_COLLISION_X;
+				collision_y = ENEMY_COLLISION_Y;
+			}
+
+			if (Collision::IsHitRectCircle(player.GetPos().x,
+				player.GetPos().y,
+				PLAYER_COLLISION_R,
+				enemy[i].GetPos().x - collision_x / 2,
+				enemy[i].GetPos().y - collision_y / 2,
+				collision_x,
+				collision_y)) {
+				m_next_flag = true;
+				m_player_death_flag = true;
 			}
 		}
 	}

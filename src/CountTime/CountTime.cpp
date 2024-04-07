@@ -35,6 +35,8 @@ void CountTime::InitCountTime(int minutes, int seconds)
 
 	m_minutes = minutes;
 	m_seconds = seconds;
+
+	m_count_time_flag = false;
 }
 
 void CountTime::StartCountTime()
