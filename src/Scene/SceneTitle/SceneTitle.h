@@ -1,13 +1,14 @@
 #pragma once
 
+#include "../../Common.h"
 
-#define TITLE_IMAGE_PATH "Data/TitleImage/TitleImage.png"        //タイトル
-#define TITLE_BUTTON_PATH "Data/TitleImage/TitlebuttonImage.png"//ボタン
+#define TITLE_IMAGE_PATH "Data/TitleImage/Title Image.png"        //タイトル
+#define TITLE_BUTTON_PATH "Data/TitleImage/Start Button.png"//ボタン
 
-constexpr int BUTTON_X = 400;
-constexpr int BUTTON_Y = 400;
 constexpr int BUTTON_W = 400;
 constexpr int BUTTON_H = 100;
+constexpr int BUTTON_X = SCREEN_SIZE_X / 2 - BUTTON_W / 2;
+constexpr int BUTTON_Y = SCREEN_SIZE_Y - BUTTON_H - 100;
 
 class SceneTitle
 {

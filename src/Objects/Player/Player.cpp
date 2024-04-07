@@ -96,4 +96,10 @@ void Player::DrawPlayer()
 		SCREEN_SIZE_Y - PLAYER_MOVE_LIMIT_Y + PLAYER_COLLISION_R,
 		GetColor(0, 0, 5));
 
+	DrawExtendGraph(m_pos.x - PLAYER_COLLISION_R,
+		m_pos.y - PLAYER_COLLISION_R,
+		m_pos.x + PLAYER_COLLISION_R,
+		m_pos.y + PLAYER_COLLISION_R,
+		m_handle,
+		true);
 }

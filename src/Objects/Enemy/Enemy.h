@@ -12,9 +12,8 @@ constexpr float ENEMY_SPEED = 2.0;
 class Enemy :public Objects
 {
 private:
-	VECTOR e_pos;
-	VECTOR e_vec;
-	double e_angle;
+	VECTOR m_enemy_vec;
+	double m_enemy_angle;
 
 	bool Arrow_Flag;
 	
@@ -27,6 +26,8 @@ public:
 	void FinEnemy();
 
 	void SpawnEnemy();
+	void DeathEnemy();
+
 	void MoveEnemy();
 	void DrawEnemy();
 

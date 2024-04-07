@@ -59,6 +59,9 @@ void ScenePlay::LoopPlay()
 			}
 		}
 	}
+	for (int i = 0; i < ENEMY_MAX_NUM; i++) {
+		enemy[i].DeathEnemy();
+	}
 
 	for (int i = 0; i < ENEMY_MAX_NUM; i++)
 	{
@@ -71,9 +74,6 @@ void ScenePlay::DrawPlay()
 	//•`‰æ
 	DrawBox(0, 0, SCREEN_SIZE_X, SCREEN_SIZE_Y, GetColor(255, 255, 255), true);
 
-	if (count_time[1].GetCountTimeFlag())
-		count_time[1].DrawCountTimeStart();
-
 	count_time[0].DrawCountTime();
 
 	for (int i = 0; i < ENEMY_MAX_NUM; i++)
@@ -82,6 +82,9 @@ void ScenePlay::DrawPlay()
 	}
 
 	player.DrawPlayer();
+
+	if (count_time[1].GetCountTimeFlag())
+		count_time[1].DrawCountTimeStart();
 }
 
 void ScenePlay::FinPlay()

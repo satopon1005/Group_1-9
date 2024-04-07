@@ -32,7 +32,6 @@ void SceneManager::Main()
 	case SCENE_FINTITLE: {
 
 		m_current_scene_ID = SCENE_INITPLAY;
-		break;
 	}
 	//---------------------------------------------------------------------------------
 	case SCENE_INITPLAY: {
@@ -40,7 +39,6 @@ void SceneManager::Main()
 		scene_play.InitPlay();
 
 		m_current_scene_ID = SCENE_LOOPPLAY;
-		break;
 	}
 	case SCENE_LOOPPLAY: {
 
