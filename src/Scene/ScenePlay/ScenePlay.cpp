@@ -10,7 +10,7 @@ void ScenePlay::InitPlay()
 	player.InitPlayer();
 	for (int i = 0; i < ENEMY_MAX_NUM; i++)
 		enemy[i].InitEnemy();
-	count_time[0].InitCountTime(1, 30);
+	count_time[0].InitCountTime(TIMER_MINUTES, TIMER_SECONDS);
 	count_time[1].InitCountTime(0, 3);
 
 	m_fg_alpha = 255;
@@ -97,10 +97,11 @@ bool ScenePlay::StepPlay()
 				PLAYER_COLLISION_R,
 				enemy[i].GetPos().x - collision_x / 2,
 				enemy[i].GetPos().y - collision_y / 2,
-				collision_x,
-				collision_y)) {
+				(float)collision_x,
+				(float)collision_y)) {
 				m_next_flag = true;
 				m_player_death_flag = true;
+				m_fg_color = GetColor(0, 0, 0);
 			}
 		}
 	}

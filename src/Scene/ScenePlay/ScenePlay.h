@@ -6,6 +6,9 @@
 
 constexpr int ENEMY_MAX_NUM = 30;
 
+constexpr int TIMER_MINUTES = 1;
+constexpr int TIMER_SECONDS = 30;
+
 class ScenePlay
 {
 private:
