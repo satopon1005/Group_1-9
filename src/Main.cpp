@@ -10,7 +10,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//-----------------------------------------
 	//一番最初に１回だけやる処理をここに書く
 	//ウィンドウの状態を設定する
-	ChangeWindowMode(true);
+	ChangeWindowMode(false);
 
 	//DXライブラリの初期化
 	if (DxLib_Init() == -1) {

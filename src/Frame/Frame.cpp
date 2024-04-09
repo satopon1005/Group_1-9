@@ -68,5 +68,5 @@ void CalcFPS()
 
 void DrawFPS()
 {
-	DrawFormatString(0, SCREEN_SIZE_Y - 15, GetColor(255,255,255), DRAW_FPS, frameRateInfo.fps);
+	DrawFormatString(0, SCREEN_SIZE_Y - 15, GetColor(255,0,0), DRAW_FPS, frameRateInfo.fps);
 }
